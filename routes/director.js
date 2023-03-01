@@ -113,7 +113,25 @@ router.get('/:director_id', (req, res) => {
 		res.json(err);
 	});
 });
-
+router.put('/:director_id',(req,res,next)=>{
+	const promise=Director.findByIdAndUpdate(
+	  req.params.director_id,
+	  req.body,
+	  {new:true} //güncellenen data gelmesi için
+	  );
+  
+	promise.then((director) => {
+  
+	  if(!director)
+	  next({message:'The director has not found ',code:99});
+  
+  
+	  res.json({status:1});
+	}).catch((err) => {
+	  res.json(err);
+	});
+  
+  });
 
 
 module.exports = router;
