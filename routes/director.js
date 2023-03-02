@@ -6,16 +6,6 @@ const router = express.Router();
 // Models
 const Director = require('../models/Director');
 
-router.post('/', function (req, res, next) {
-    const director = new Director(req.body);
-    const promise = director.save();
-    promise.then((data) => {
-        res.json(data);
-    }).catch((err) => {
-        res.json(err);
-    });
-});
-
 router.get('/', (req, res) => {
 	const promise = Director.aggregate([
 		{
@@ -61,6 +51,17 @@ router.get('/', (req, res) => {
 		res.json(err);
 	});
 });
+
+router.post('/', function (req, res, next) {
+    const director = new Director(req.body);
+    const promise = director.save();
+    promise.then((data) => {
+        res.json(data);
+    }).catch((err) => {
+        res.json(err);
+    });
+});
+
 
 router.get('/:director_id', (req, res) => {
 	const promise = Director.aggregate([
