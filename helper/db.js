@@ -4,7 +4,9 @@ dotenv.config();
 
 module.exports=()=>{
 //DB connection 
-mongoose.connect(process.env.DB_LINK.toString());
+mongoose.connect(process.env.DB_LINK,{  useUnifiedTopology:true,
+  useNewUrlParser: true,
+  useCreateIndex: true});
 
 
 mongoose.connection.on('open',()=>{
