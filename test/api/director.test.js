@@ -17,7 +17,6 @@ describe('/api/directors test', () => {
 
 
     })
-
     describe('/GET directors', () => {
         it('it should GET all the directors', (done) => {
             chai.request(server).get('/api/directors').set('x-access-token', token).end((err, res) => {
@@ -27,7 +26,6 @@ describe('/api/directors test', () => {
             });
         });
     });
-
     describe('/POST directors', () => {
         it('it should Post a director', (done) => {
 
@@ -49,7 +47,6 @@ describe('/api/directors test', () => {
             });
         });
     });
-
     describe('/GET/:director_id director', () => {
         it('it should GET the directors by given id', (done) => {
             chai.request(server).get('/api/directors/' + directorId).set('x-access-token', token).end((err, res) => {
@@ -95,6 +92,5 @@ describe('/api/directors test', () => {
             });
         });
     });
-
 
 });
