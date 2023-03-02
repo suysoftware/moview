@@ -92,9 +92,6 @@ describe('/api/movies test',()=>{
             res.body.should.have.property('country').eql(movie.country);
             res.body.should.have.property('year').eql(movie.year);
             res.body.should.have.property('imdb_score').eql(movie.imdb_score);
-
-
-            
             done();
            });
         });

@@ -63,6 +63,26 @@ describe('/api/directors test',()=>{
             });
         });
     });
+    describe('/PUT directors',()=>{
+        it('it should UPDATE a director',(done)=>{
+
+            const director={
+                name:"test2direct",
+                surname: "2testsurn",
+                bio:"2test bioooo"
+            }
+
+
+            chai.request(server).put('/api/directors/'+directorId).send(director).set('x-access-token',token).end((err,res)=>{
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.should.have.property('name').eql(director.name);
+                res.body.should.have.property('surname').eql(director.surname);
+                res.body.should.have.property('bio').eql(director.bio);
+                done();
+            });
+        });
+    });
 
 
 });
