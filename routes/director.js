@@ -126,7 +126,7 @@ router.put('/:director_id',(req,res,next)=>{
 	  next({message:'The director has not found ',code:99});
   
   
-	  res.json({status:1});
+	  res.json(director);
 	}).catch((err) => {
 	  res.json(err);
 	});
@@ -144,7 +144,7 @@ router.delete('/:director_id',(req,res,next)=>{
 	  next({message:'The director has not found ',code:99});
   
   
-	  res.json({status:1});
+	  res.json(director);
 	}).catch((err) => {
 	  res.json(err);
 	});

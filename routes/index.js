@@ -47,8 +47,6 @@ router.post('/authenticate', (req, res) => {
       });
     }
     else {
-      console.log(password);
-      console.log(user.password);
       bcrypt.compare(password, user.password).then((result) => {
         if (!result) {
           res.json({

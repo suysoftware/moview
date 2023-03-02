@@ -63,7 +63,7 @@ router.put('/:movie_id',(req,res,next)=>{
     next({message:'The movie has not found ',code:99});
 
 
-    res.json({status:1});
+    res.json(movie);
   }).catch((err) => {
     res.json(err);
   });
@@ -107,7 +107,7 @@ router.post('/', (req, res, next) => {
 
   const promise = movie.save();
   promise.then((data) => {
-    res.json({ status: 1 });
+    res.json(data);
 
   }).catch((err) => {
     res.json(err);

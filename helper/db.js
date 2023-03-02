@@ -7,7 +7,7 @@ mongoose.connect(process.env.DB_LINK);
 
 
 mongoose.connection.on('open',()=>{
-  console.log('MongoDB connection successful');
+  //console.log('MongoDB connection successful');
 });
 mongoose.connection.on('error',(err)=>{
   console.log('MongoDB connection fail');
