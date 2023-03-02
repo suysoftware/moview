@@ -109,7 +109,7 @@ router.get('/:director_id', (req, res) => {
 	]);
 
 	promise.then((data) => {
-		res.json(data);
+		res.json(data[0]);
 	}).catch((err) => {
 		res.json(err);
 	});

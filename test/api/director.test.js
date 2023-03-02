@@ -50,6 +50,19 @@ describe('/api/directors test',()=>{
         });
     });
 
+    describe('/GET/:director_id director',()=>{
+        it('it should GET the directors by given id',(done)=>{
+            chai.request(server).get('/api/directors/'+directorId).set('x-access-token',token).end((err,res)=>{
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.should.have.property('name');
+                res.body.should.have.property('surname');
+                res.body.should.have.property('movies');
+                res.body.should.have.property('_id').eql(directorId);
+                done();
+            });
+        });
+    });
 
 
 });
