@@ -4,6 +4,8 @@ const should=chai.should();
 const server=require('../../app');
 
 chai.use(chaiHttp);
+
+let token,directorId;
 describe('/api/directors test',()=>{
 
     before((done)=>{
@@ -25,6 +27,29 @@ describe('/api/directors test',()=>{
             });
         });
     });
+
+    describe('/POST directors',()=>{
+        it('it should Post a director',(done)=>{
+
+            const director={
+                name:"test director",
+                surname: "test surname",
+                bio:"test bio"
+            }
+
+
+            chai.request(server).post('/api/directors').send(director).set('x-access-token',token).end((err,res)=>{
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.should.have.property('name');
+                res.body.should.have.property('surname');
+                res.body.should.have.property('bio');
+                directorId=res.body._id;
+                done();
+            });
+        });
+    });
+
 
 
 });
