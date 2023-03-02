@@ -1,9 +1,10 @@
 const mongoose=require('mongoose');
-require('dotenv').config();
+const dotenv = require("dotenv");
+dotenv.config();
 
 module.exports=()=>{
 //DB connection 
-mongoose.connect(process.env.DB_LINK);
+mongoose.connect(process.env.DB_LINK.toString());
 
 
 mongoose.connection.on('open',()=>{
