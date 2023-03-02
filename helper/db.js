@@ -4,9 +4,8 @@ dotenv.config();
 
 module.exports=()=>{
 //DB connection 
-mongoose.connect(process.env.DB_LINK,{  useUnifiedTopology:true,
-  useNewUrlParser: true,
-  useCreateIndex: true});
+
+mongoose.connect("mongodb+srv://ripperdevdb:r9kFp6NZGDS0nhq@dynamicgentis.5kwl9hg.mongodb.net/?retryWrites=true&w=majority");
 
 
 mongoose.connection.on('open',()=>{
