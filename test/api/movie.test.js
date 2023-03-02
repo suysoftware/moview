@@ -98,17 +98,9 @@ describe('/api/movies test',()=>{
     });
     describe('/DELETE/:director_id movies',()=>{
         it('it should DELETE a movie given by id',(done)=>{
-            const movie={
-                title:'93creative',
-                director_id:'63ff6ffb5ed32eda39393d61',
-                category:'SUÇ',
-                country:'FRANSA',
-                year:1970,
-                imdb_score:9
-
-            };
-            
-           chai.request(server).delete('/api/movies/'+movieId).send(movie).set('x-access-token',token).end((err,res)=>{
+          
+          
+           chai.request(server).delete('/api/movies/'+movieId).set('x-access-token',token).end((err,res)=>{
             res.should.have.status(200);
             res.body.should.be.a('object');
             res.body.should.have.property('status').eql(1);
